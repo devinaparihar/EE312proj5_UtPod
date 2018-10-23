@@ -50,5 +50,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/EE312proj5_UtPod.dir/DependInfo.cmake"
+  "CMakeFiles/proj5.dir/DependInfo.cmake"
   )
