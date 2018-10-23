@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2018.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Devina Parihar\Desktop\EE312\proj5"
+CMAKE_SOURCE_DIR = "C:\Users\Devina Parihar\Documents\GitHub\EE312proj5_UtPod"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Devina Parihar\Desktop\EE312\proj5\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Devina Parihar\Documents\GitHub\EE312proj5_UtPod\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Devina Parihar\Desktop\EE312\proj5\cmake-build-debug\CMakeFiles" "C:\Users\Devina Parihar\Desktop\EE312\proj5\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Devina Parihar\Documents\GitHub\EE312proj5_UtPod\cmake-build-debug\CMakeFiles" "C:\Users\Devina Parihar\Documents\GitHub\EE312proj5_UtPod\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Devina Parihar\Desktop\EE312\proj5\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Devina Parihar\Documents\GitHub\EE312proj5_UtPod\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,17 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named proj5
+# Target rules for targets named EE312proj5_UtPod
 
 # Build rule for target.
-proj5: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 proj5
-.PHONY : proj5
+EE312proj5_UtPod: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 EE312proj5_UtPod
+.PHONY : EE312proj5_UtPod
 
 # fast build rule for target.
-proj5/fast:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/build
-.PHONY : proj5/fast
+EE312proj5_UtPod/fast:
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/build
+.PHONY : EE312proj5_UtPod/fast
 
 UtPod.obj: UtPod.cpp.obj
 
@@ -128,7 +128,7 @@ UtPod.obj: UtPod.cpp.obj
 
 # target to build an object file
 UtPod.cpp.obj:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod.cpp.obj
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod.cpp.obj
 .PHONY : UtPod.cpp.obj
 
 UtPod.i: UtPod.cpp.i
@@ -137,7 +137,7 @@ UtPod.i: UtPod.cpp.i
 
 # target to preprocess a source file
 UtPod.cpp.i:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod.cpp.i
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod.cpp.i
 .PHONY : UtPod.cpp.i
 
 UtPod.s: UtPod.cpp.s
@@ -146,7 +146,7 @@ UtPod.s: UtPod.cpp.s
 
 # target to generate assembly for a file
 UtPod.cpp.s:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod.cpp.s
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod.cpp.s
 .PHONY : UtPod.cpp.s
 
 UtPod_driver.obj: UtPod_driver.cpp.obj
@@ -155,7 +155,7 @@ UtPod_driver.obj: UtPod_driver.cpp.obj
 
 # target to build an object file
 UtPod_driver.cpp.obj:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod_driver.cpp.obj
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod_driver.cpp.obj
 .PHONY : UtPod_driver.cpp.obj
 
 UtPod_driver.i: UtPod_driver.cpp.i
@@ -164,7 +164,7 @@ UtPod_driver.i: UtPod_driver.cpp.i
 
 # target to preprocess a source file
 UtPod_driver.cpp.i:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod_driver.cpp.i
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod_driver.cpp.i
 .PHONY : UtPod_driver.cpp.i
 
 UtPod_driver.s: UtPod_driver.cpp.s
@@ -173,7 +173,7 @@ UtPod_driver.s: UtPod_driver.cpp.s
 
 # target to generate assembly for a file
 UtPod_driver.cpp.s:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/UtPod_driver.cpp.s
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/UtPod_driver.cpp.s
 .PHONY : UtPod_driver.cpp.s
 
 song.obj: song.cpp.obj
@@ -182,7 +182,7 @@ song.obj: song.cpp.obj
 
 # target to build an object file
 song.cpp.obj:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/song.cpp.obj
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/song.cpp.obj
 .PHONY : song.cpp.obj
 
 song.i: song.cpp.i
@@ -191,7 +191,7 @@ song.i: song.cpp.i
 
 # target to preprocess a source file
 song.cpp.i:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/song.cpp.i
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/song.cpp.i
 .PHONY : song.cpp.i
 
 song.s: song.cpp.s
@@ -200,7 +200,7 @@ song.s: song.cpp.s
 
 # target to generate assembly for a file
 song.cpp.s:
-	$(MAKE) -f CMakeFiles\proj5.dir\build.make CMakeFiles/proj5.dir/song.cpp.s
+	$(MAKE) -f CMakeFiles\EE312proj5_UtPod.dir\build.make CMakeFiles/EE312proj5_UtPod.dir/song.cpp.s
 .PHONY : song.cpp.s
 
 # Help Target
@@ -209,7 +209,7 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... proj5
+	@echo ... EE312proj5_UtPod
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... UtPod.obj
