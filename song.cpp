@@ -58,6 +58,9 @@ bool Song ::operator>(Song const &rhs) {
 bool Song ::operator==(Song const &rhs) {
     return(artist == rhs.artist && title == rhs.title && size == rhs.size);
 
+<<<<<<< HEAD
 // hi whats up
+=======
+>>>>>>> b05912e5e0de5a5f17058a2289eed81e7b30eefd
 
 }
