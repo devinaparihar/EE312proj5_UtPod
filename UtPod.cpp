@@ -31,18 +31,18 @@ int UtPod ::removeSong(Song const &s) {
     SongNode *p = songs;        //p pointing to head of song list
     SongNode *p2 = songs;
     SongNode *ToBeRemoved = songs;
-    while(p !=NULL){
+    while(p != nullptr){
         if(p->s.getTitle() == s.getTitle())
             ToBeRemoved = p;
         p = p->next;
 
     }
-    while(p2->next !=NULL && p2->next!= ToBeRemoved) { //keep traversing until p2
+    while(p2->next != nullptr && p2->next!= ToBeRemoved) { //keep traversing until p2
                                                         // is pointing to right before removal node
         p2 = p2->next;
 
     }
-    if(p2->next == NULL) {
+    if(p2->next == nullptr) {
         cout << "The song to be deleted is not in the list.\n";
         return NOT_FOUND;
     }
@@ -56,30 +56,40 @@ int UtPod ::removeSong(Song const &s) {
 void UtPod ::shuffle() {
     int total = 0;
     SongNode *p;
-    songs = p;
-    while (p != NULL){
-        total++;
-        p->next;
-    }
+    p = songs;
 
+    while (p != nullptr){
+        total++;
+        p = p->next;
+    }
     unsigned int currentTime = (unsigned)time(0);
     srand(currentTime);        //seeds the random number generator
 
     for (int i = 0; i < total; i++){
-        SongNode *temp1 = songs;
-        SongNode *temp2 = songs;
+        SongNode *s1 = songs;
+        SongNode *s2 = songs;
+        SongNode *temp = new SongNode;
 
-        
+        int rand1 = rand() % total;
+        int rand2 = rand() & total;
 
+        while(rand1 == 0){
+            s1 = s1->next;
+            rand1--;
         }
-
+        while(rand2 == 0){
+            s2 = s2->next;
+            rand2--;
+        }
+        temp->s = s1->s;
+        s1->s = s2->s;
+        s2->s = temp->s;
     }
-
 }
 
 void UtPod ::showSongList() {
     SongNode *p = songs;        //p is pointing to head of song list
-    while(p != NULL){
+    while(p != nullptr){
         cout << "Song Title: " << p->s.getTitle() << " Artist: " << p->s.getArtist() << endl;  //printing the song info
         p = p->next;
     }
