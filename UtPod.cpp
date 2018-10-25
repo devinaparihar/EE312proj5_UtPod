@@ -71,25 +71,39 @@ int UtPod ::removeSong(Song const &s) {
 void UtPod ::shuffle() {
     int total = 0;
     SongNode *p;
+<<<<<<< HEAD
     songs = p;
+=======
+    p = songs;
+
+>>>>>>> 18967c8bb853b423bfffb2b2f54be8dcfbe3ad5c
     while (p != nullptr){
         total++;
-        p->next;
+        p = p->next;
     }
-
     unsigned int currentTime = (unsigned)time(0);
     srand(currentTime);        //seeds the random number generator
 
     for (int i = 0; i < total; i++){
-        SongNode *temp1 = songs;
-        SongNode *temp2 = songs;
+        SongNode *s1 = songs;
+        SongNode *s2 = songs;
+        SongNode *temp = new SongNode;
 
-        
+        int rand1 = rand() % total;
+        int rand2 = rand() & total;
 
+        while(rand1 == 0){
+            s1 = s1->next;
+            rand1--;
         }
-
+        while(rand2 == 0){
+            s2 = s2->next;
+            rand2--;
+        }
+        temp->s = s1->s;
+        s1->s = s2->s;
+        s2->s = temp->s;
     }
-
 }
 
 void UtPod ::showSongList() {
