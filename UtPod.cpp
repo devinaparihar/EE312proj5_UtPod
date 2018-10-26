@@ -65,6 +65,11 @@ int UtPod ::removeSong(Song const &s) {
 void UtPod ::shuffle() {
     int total = 0;
     SongNode *p;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 6e1318c1ce399fd8bae23b0fe348c87eba1ddb18
     p = songs;
 
     while (p != nullptr){
@@ -90,7 +95,7 @@ void UtPod ::shuffle() {
             s2 = s2->next;
             rand2--;
         }
-        temp->s = s1->s;
+        temp->s = s1->s;            //SWAP
         s1->s = s2->s;
         s2->s = temp->s;
     }
@@ -106,22 +111,46 @@ void UtPod ::showSongList() {
 }
 
 void UtPod ::sortSongList() {
-    SongNode *p = songs;        //p is pointing to head of song list
-    SongNode *p2 = songs->next;
 
-    while(p != nullptr){
-        while()
-        if(p2->s.operator<(p->s)){     //WORK IN PROGRESS
+    if (songs == nullptr)    //list is empty
+        return;
+
+    SongNode *t = songs;
+
+    int numSongs = 0;
+    while (t != nullptr){
+        numSongs++;
+        t = t->next;
+    }
+
+
+
+
+    for (int i = 0; i < numSongs; i++) {
+        SongNode *p = songs;        //p is pointing to head of song list
+        //SongNode *p2 = p->next;
+        for (int j = 0; j < numSongs - 1; j++) {
+
+            if (p->s.operator>(p->next->s)) {     //WORK IN PROGRESS
+
+                SongNode *temp = p;             //swap if first pos is greater than second pos
+                p = p->next;
+                p->next = temp;
+            }
+
+            p = p->next;
 
         }
 
 
-
-
     }
-
 
 }
 int UtPod ::getRemainingMemory() {
+<<<<<<< HEAD
     return memSize;                     //????? decrement/increment
+=======
+    return memSize;
+
+>>>>>>> 6e1318c1ce399fd8bae23b0fe348c87eba1ddb18
 }
