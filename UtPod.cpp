@@ -59,24 +59,14 @@ int UtPod ::removeSong(Song const &s) {
 
     delete(ToBeRemoved);
 
-
-
     return SUCCESS;
 
 }
-
-
-
-
 void UtPod ::shuffle() {
     int total = 0;
     SongNode *p;
-<<<<<<< HEAD
-    songs = p;
-=======
     p = songs;
 
->>>>>>> 18967c8bb853b423bfffb2b2f54be8dcfbe3ad5c
     while (p != nullptr){
         total++;
         p = p->next;
@@ -132,8 +122,6 @@ void UtPod ::sortSongList() {
 
 
 }
-
 int UtPod ::getRemainingMemory() {
     return memSize;                     //????? decrement/increment
-
 }
