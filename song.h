@@ -42,19 +42,10 @@ public:
     bool operator ==(Song const &rhs);
 
 
-    ~Song();
+    ~Song(){
+
+    }
 };
-
-
-
-
-
-
-
-
-
-
-
 
 
 

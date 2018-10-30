@@ -32,9 +32,9 @@ void Song ::setSize(int size) {
 }
 
 bool Song ::operator<(Song const &rhs) {    //artist, then title, then size
-    if(artist.compare(rhs.artist) >0)
+    if(artist.compare(rhs.artist) > 0)
         return true;
-    else if(title.compare(rhs.title) >0)
+    else if(title.compare(rhs.title) > 0)
         return true;
     else if(size < rhs.size)
         return true;
@@ -55,8 +55,8 @@ bool Song ::operator>(Song const &rhs) {
 
 }
 
+
 bool Song ::operator==(Song const &rhs) {
     return(artist == rhs.artist && title == rhs.title && size == rhs.size);
-
 
 }
