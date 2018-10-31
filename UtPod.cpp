@@ -8,8 +8,8 @@ using namespace std;
 
 UtPod ::UtPod() {
 
-    songs = 0;       //SongNode head pointer to NULL
-    memSize = MAX_MEMORY;
+    songs = 0;                  //SongNode head pointer to NULL
+    memSize = MAX_MEMORY;       //default constructer sets memSize to MAX of 512MB
 
 }
 
@@ -23,19 +23,18 @@ UtPod ::UtPod(int size) {
 
 int UtPod ::addSong(Song const &s) {
 
-    int remaining = getRemainingMemory();
+    int remaining = getRemainingMemory();           //check if there is enough space to add song
     if((remaining - s.getSize()) < 0){
-        cout << "Not enough memory available to add this song." << endl;
+        cout << "Not enough memory available to add this song: " << s.getTitle() << endl;
         return NO_MEMORY;
     }
 
     SongNode *temp = new SongNode;
     temp->s = s;
     temp->next = songs;             //adding song to front of list
-    songs = temp;           //pointing to new head of list
+    songs = temp;                   //pointing to new head of list
 
-    int memDec = s.getSize();
-    memSize = memSize - memDec;
+
 
     return SUCCESS;
 
@@ -44,22 +43,23 @@ int UtPod ::addSong(Song const &s) {
 int UtPod ::removeSong(Song const &s) {
 
 
-    SongNode *p = songs;        //p pointing to head of song list
+
+    SongNode *p = songs;        //p, p2, p3 pointing to head of song list
     SongNode *p2 = songs;
-    SongNode *ToBeRemoved = songs;
-    while(p != 0){
-        if(p->s.getTitle() == s.getTitle())
+    SongNode *p3 = songs;
+    SongNode *ToBeRemoved;
+
+    while(p != 0){              //finding the location of ToBeRemoved
+        if(p->s == s)
             ToBeRemoved = p;
         p = p->next;
 
     }
 
-    if(ToBeRemoved == songs){           //case where removal is at head of list
-        songs = ToBeRemoved->next;      //song is pointing at new head
-        delete(ToBeRemoved);
+    if(p3->s == s){                  //case where removal is at head of list
+        songs = songs->next;          //song is pointing at new head
+        delete(p3);
 
-        int memAdd = s.getSize();
-        memSize = memSize + memAdd;
 
         return SUCCESS;
 
@@ -70,17 +70,16 @@ int UtPod ::removeSong(Song const &s) {
         p2 = p2->next;
 
     }
-    if(p2->next == 0) {
-        cout << "The song to be deleted is not in the list.\n";
+
+    if(p2->next == 0) {                             //if p2 made it to the end of list, then song is not present
+        cout << "The song: " << s.getTitle() << " to be deleted is not in the list.\n";
         return NOT_FOUND;
     }
 
     p2->next = p2->next->next;          //skip over the node that is to be deleted
 
-    delete(ToBeRemoved);
+    delete(ToBeRemoved);                //free the memory of the node to be removed
 
-    int memAdd = s.getSize();
-    memSize = memSize + memAdd;
 
     return SUCCESS;
 
@@ -93,10 +92,11 @@ void UtPod ::shuffle() {
 
     p = songs;
 
-    while (p != 0){
+    while (p != 0){         //finding total number of songs in list
         total++;
         p = p->next;
     }
+
     unsigned int currentTime = (unsigned)time(0);
     srand(currentTime);        //seeds the random number generator
 
@@ -105,21 +105,23 @@ void UtPod ::shuffle() {
         SongNode *s2 = songs;
         SongNode *temp = new SongNode;
 
-        int rand1 = rand() % total;
-        int rand2 = rand() & total;
+        int rand1 = rand() % total;      //creating two random spots within the range of the number of songs
+        int rand2 = rand() % total;
 
-        while(rand1 == 0){
+        while(rand1 != 0){              //make s1 point to first random spot in list
             s1 = s1->next;
             rand1--;
         }
-        while(rand2 == 0){
+        while(rand2 != 0){              //make s2 point to second random spot in list
             s2 = s2->next;
             rand2--;
         }
 
-        temp->s = s1->s;            //SWAP
+        temp->s = s1->s;            //SWAP the two randomly chosen spots
         s1->s = s2->s;
         s2->s = temp->s;
+
+        delete(temp);               //free the memory of the temp spot
     }
 
 }
@@ -129,7 +131,8 @@ void UtPod ::showSongList() {
     if(songs == 0)
         cout << "There are no songs on this UtPod." << endl;
     while(p != 0){
-        cout << "Song Title: " << p->s.getTitle() << " Artist: " << p->s.getArtist() << endl;  //printing the song info
+        cout << "Song Title: " << p->s.getTitle() << "  Artist: " << p->s.getArtist()
+             << "  Size: " << p->s.getSize() << endl;  //printing the song info
         p = p->next;
     }
 
@@ -137,31 +140,39 @@ void UtPod ::showSongList() {
 
 void UtPod ::sortSongList() {
 
-    if (songs == 0)    //list is empty
+    if (songs == 0) {   //list is empty
+        cout << "No songs in list to be sorted." << endl;
         return;
 
-    SongNode *t = songs;
+    }
+
+    SongNode *t = songs;    //t is pointing to head of list
 
     int numSongs = 0;
     while (t != 0){
-        numSongs++;         //counting number of songs
+        numSongs++;         //counting number of total songs
         t = t->next;
     }
 
-
+    //sorting the list
     for (int i = 0; i < numSongs; i++) {
-        SongNode *p = songs;        //p is pointing to head of song list
-        //SongNode *p2 = p->next;
+        SongNode *p = songs;        //p is pointing to head of song list after each outside iteration
         for (int j = 0; j < numSongs - 1; j++) {
 
-            if (p->s.operator>(p->next->s)) {     //WORK IN PROGRESS
+            if (p->s > (p->next->s)) {
 
-                SongNode *temp = p;             //swap if first pos is greater than second pos
-                p = p->next;
-                p->next = temp;
+                SongNode *temp = new SongNode;
+
+
+                temp->s = p->s;            //SWAP if song is greater than next song (sorting by alpha)
+                p->s = p->next->s;
+                p->next->s = temp->s;
+
+                delete(temp);               //free the mem of the temp used for the swap
+
             }
 
-            p = p->next;
+            p = p->next;                //move down list
 
         }
 
@@ -187,13 +198,25 @@ void UtPod ::clearMemory() {
 
 int UtPod ::getRemainingMemory() {
 
-    return memSize;
+    int memUsed = 0;
+    SongNode *p = songs;
+    while(p !=0){
+        memUsed = memUsed + p->s.getSize();      //go through list and add up each size of song to find total
+        p = p->next;
+    }
+
+    int remaining = getTotalMemory() - memUsed;     //find remaining mem by subtracting used from total
+
+    return remaining;
+
 
 }
 
 UtPod::~UtPod() {
 
-    clearMemory();
+    clearMemory();          //delete and free mem of all songs in lit using the clear mem function
 }
+
+
 
 

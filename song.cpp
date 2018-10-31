@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Song :: Song ()
+Song :: Song ()             //default constructer
 {
     artist = "";
     title = "";
@@ -32,31 +32,46 @@ void Song ::setSize(int size) {
 }
 
 bool Song ::operator<(Song const &rhs) {    //artist, then title, then size
-    if(artist.compare(rhs.artist) > 0)
+    if(artist.compare(rhs.artist) < 0)
         return true;
-    else if(title.compare(rhs.title) > 0)
-        return true;
-    else if(size < rhs.size)
-        return true;
-    else
-        return false;
+    else if(artist.compare(rhs.artist) == 0){       //if artist is same, check for title
+        if(title.compare(rhs.title) < 0)
+            return true;
+
+        else if(title.compare(rhs.title) == 0) {    //if artist and title are same, check for size
+            if (size < rhs.size)
+                return true;
+            else
+                return false;
+        }
+    }
+
 
 }
 
+
+
 bool Song ::operator>(Song const &rhs) {
-    if(artist.compare(rhs.artist) <0)
+    if(artist.compare(rhs.artist) > 0)
         return true;
-    else if(title.compare(rhs.title) <0)
-        return true;
-    else if(size > rhs.size)
-        return true;
-    else
-        return false;
+
+    else if(artist.compare(rhs.artist) == 0){           //if artist is same, check for title
+        if(title.compare(rhs.title) > 0)
+            return true;
+
+        else if(title.compare(rhs.title) == 0) {    //if artist and title are same check for size
+            if (size > rhs.size)
+                return true;
+            else
+                return false;
+        }
+    }
+
 
 }
 
 
 bool Song ::operator==(Song const &rhs) {
-    return(artist == rhs.artist && title == rhs.title && size == rhs.size);
+    return(artist == rhs.artist && title == rhs.title && size == rhs.size);     //check if two songs are the same
 
 }

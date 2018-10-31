@@ -1,4 +1,6 @@
 //DOCUMENT HERE
+//Devina Parihar and Eeshan Sarmah
+//EE312 lab 5, Priebe
 
 #ifndef UTPOD_H
 #define UTPOD_H
@@ -42,9 +44,9 @@ public:
 
      precondition: s is a valid Song
 
-     input parms -
+     input parms -  a song object "s" of class song to be added
 
-     output parms -
+     output parms - returns a 0 if add is successful or -1 if not successful
     */
 
     int addSong(Song const &s);
@@ -57,9 +59,9 @@ public:
          o returns -2 if nothing is removed
 
 
-       input parms -
+       input parms - a song object "s" of class song to be removed
 
-       output parms -
+       output parms - returns a 0 if remove is successful or -2 is nothing is removed
     */
 
     int removeSong(Song const &s);
@@ -69,9 +71,9 @@ public:
      *  shuffles the songs into random order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - no output params, but the song list is shuffled
     */
 
     void shuffle();
@@ -81,9 +83,9 @@ public:
      * prints the current list of songs in order from first to last to standard output
      * format - Title, Artist, size in MB (one song per line)
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - no output params, but the song list is displayed to screen
     */
 
     void showSongList();
@@ -93,9 +95,9 @@ public:
      *  sorts the songs in ascending order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - no output params, but the song list is sorted alphabetically by artist, then title, then size
     */
 
     void sortSongList();
@@ -104,9 +106,9 @@ public:
     /* FUNCTION - void clearMemory
      * clears all the songs from memory
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - no output params, but all songs are cleared from list
     */
     void clearMemory();
 
@@ -116,9 +118,9 @@ public:
      *  returns the total amount of memory in the UtPod
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - returns the total amount of memory that the UtPod has
     */
 
     int getTotalMemory() {
@@ -130,15 +132,15 @@ public:
     /* FUNCTION - int getRemainingMemory
      *  returns the amount of memory available for adding new songs
 
-       input parms -
+       input parms - no input params
 
-       output parms -
+       output parms - returns the amount of memory that is left on the UtPod
     */
 
     int getRemainingMemory();
 
 
-    ~UtPod();
+    ~UtPod();                   //deconstructor
 
 };
 

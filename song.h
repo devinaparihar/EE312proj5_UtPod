@@ -15,7 +15,7 @@ private:
     int size;
 
 public:
-    Song();             //constructer
+    Song();                                     // default constructer
     Song(string artist, string title, int size); //constructer
 
     void setArtist(string a);
@@ -27,7 +27,7 @@ public:
     void setTitle(string t);
     string getTitle() const
     {
-       return title;
+        return title;
     };
 
     void setSize(int size);
@@ -42,7 +42,7 @@ public:
     bool operator ==(Song const &rhs);
 
 
-    ~Song(){
+    ~Song(){                                //deconstructer
 
     }
 };
