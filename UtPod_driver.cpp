@@ -178,6 +178,22 @@ int main(int argc, char *argv[])
     result = t2.addSong(jam6);
     cout << "add result = " << result << endl;
 
+    Song jam7("Beatles", "Drive my Car", 16);
+    result = t2.addSong(jam7);
+    cout << "add result = " << result << endl;
+
+    t2.showSongList();
+    cout << endl;
+    t2.sortSongList();
+    cout << "Testing sort: " << endl;
+    t2.showSongList();
+
+    cout << endl;
+
+
+    result = t2.removeSong(jam7);
+    cout << "delete result = " << result << endl;
+
     cout << endl;
 
     t2.sortSongList();                                  //testing sort and show functions
@@ -202,6 +218,9 @@ int main(int argc, char *argv[])
     t2.showSongList();
     cout << endl;
     cout << "Remaining memory = " << t2.getRemainingMemory() << "MB" << endl;
+
+
+
 
 
 
