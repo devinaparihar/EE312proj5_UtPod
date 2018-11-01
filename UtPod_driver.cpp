@@ -88,6 +88,14 @@ int main(int argc, char *argv[])
     result = t.removeSong(s4);
     cout << "delete result = " << result << endl;
 
+    cout<< endl;
+    cout<< "Testing removing song from an empty list: " << endl;
+
+    result = t.removeSong(s2);
+    cout << "delete result = " << result << endl;
+
+    cout << endl;
+
 
     t.showSongList();
 
@@ -219,10 +227,5 @@ int main(int argc, char *argv[])
     cout << endl;
     cout << "Remaining memory = " << t2.getRemainingMemory() << "MB" << endl;
 
-
-
-
-
-
-
+    
 }

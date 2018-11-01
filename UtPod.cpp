@@ -42,6 +42,10 @@ int UtPod ::addSong(Song const &s) {
 
 int UtPod ::removeSong(Song const &s) {
 
+    if(songs == 0){
+        cout << "There are no songs in the list to be removed." << endl;
+        return NOT_FOUND;
+    }
 
 
     SongNode *p = songs;        //p, p2, p3 pointing to head of song list
