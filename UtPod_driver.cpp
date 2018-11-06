@@ -227,5 +227,5 @@ int main(int argc, char *argv[])
     cout << endl;
     cout << "Remaining memory = " << t2.getRemainingMemory() << "MB" << endl;
 
-    
+
 }
